@@ -1,0 +1,24 @@
+ul.social-medias {
+    list-style: none;
+    padding: 0;
+}
+
+ul.social-medias li {
+    display: inline;
+    margin: 0;
+    padding: 5px;
+}
+
+.fa {
+    font-size: 35pt;
+    color: white;
+    padding: 8px;
+}
+
+.fa-linkedin:hover {
+    color: black;
+}
+
+.fa-github:hover {
+    color: black;
+}
