@@ -31,6 +31,8 @@ export class LoginComponent implements OnInit {
       environment.token = this.userDto.token;
       environment.photo = this.userDto.photo;
 
+      console.log(environment.photo)
+
       this.router.navigate(['/inicio'])
     }, error => {
       if (error.status == 401) {
