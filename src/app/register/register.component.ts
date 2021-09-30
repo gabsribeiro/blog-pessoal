@@ -10,7 +10,7 @@ import { AuthService } from '../service/auth.service';
 })
 export class RegisterComponent implements OnInit {
 
-  user: User = new User;
+  user: User = new User();
   passwordConf: string;
   typeUser: string;
 
@@ -39,7 +39,7 @@ export class RegisterComponent implements OnInit {
     } else {
       this.authService.cadastrar(this.user).subscribe((resp: User) => {
         this.user = resp
-        this.router.navigate(['/entrar'])
+        this.router.navigate(['/login'])
         alert('Usuário cadastrado com sucesso');
       })
     }
