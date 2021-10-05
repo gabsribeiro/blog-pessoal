@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
-import { Theme } from '../model/Theme';
-import { ThemeService } from '../service/theme.service';
 
 @Component({
   selector: 'app-theme',
@@ -11,35 +9,14 @@ import { ThemeService } from '../service/theme.service';
 })
 export class ThemeComponent implements OnInit {
 
-  theme: Theme = new Theme();
-  themeList: Theme[];
-
   constructor(
-    private router: Router,
-    private themeService: ThemeService
+    private router: Router
   ) { }
 
   ngOnInit() {
     if (environment.token == '') {
       this.router.navigate(['/login'])
     }
-
-    this.findAllThemes();
-  }
-
-  findAllThemes() {
-    this.themeService.getAllTheme().subscribe((resp: Theme[]) => {
-      this.themeList = resp;
-    })
-  }
-
-  register() {
-    this.themeService.postTheme(this.theme).subscribe((resp: Theme) => {
-      this.theme = resp;
-      alert('Tema cadastrado com sucesso!');
-      this.findAllThemes();
-      this.theme = new Theme();
-    })
   }
 
 }
