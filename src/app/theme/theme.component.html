@@ -42,8 +42,8 @@
                         <th>{{theme.idTheme}}</th>
                         <td>{{theme.theme}}</td>
                         <td>
-                            <button class="btn btn-info mr-3">Editar</button>
-                            <button class="btn btn-danger">Deletar</button>
+                            <button class="btn btn-info mr-3" [routerLink]="['/editar-tema', theme.idTheme]">Editar</button>
+                            <button class="btn btn-danger" [routerLink]="['/deletar-tema', theme.idTheme]">Deletar</button>
                         </td>
                     </tr>
                 </tbody>

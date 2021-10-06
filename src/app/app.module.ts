@@ -12,6 +12,8 @@ import { ThemeComponent } from './theme/theme.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { ThemeEditComponent } from './edit/theme-edit/theme-edit.component';
+import { ThemeDeleteComponent } from './delete/theme-delete/theme-delete.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    ThemeComponent
+    ThemeComponent,
+    ThemeEditComponent,
+    ThemeDeleteComponent
   ],
   imports: [
     BrowserModule,
