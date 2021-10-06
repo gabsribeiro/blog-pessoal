@@ -8,14 +8,11 @@ import { environment } from 'src/environments/environment.prod';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-
   name = environment.name
   photo = environment.photo
 
   constructor(
-
     private router: Router
-
   ) { }
 
   ngOnInit() {

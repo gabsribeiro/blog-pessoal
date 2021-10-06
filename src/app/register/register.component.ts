@@ -11,7 +11,7 @@ import { AuthService } from '../service/auth.service';
 export class RegisterComponent implements OnInit {
 
   user: User = new User();
-  passwordConf: string;
+  confirmPassword: string;
   typeUser: string;
 
   constructor(
@@ -20,11 +20,11 @@ export class RegisterComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    window.scroll(0,0);    
+    window.scroll(0, 0);
   }
 
   passwordConfirm(event: any) {
-    this.passwordConf = event.target.value;
+    this.confirmPassword = event.target.value;
   }
 
   userType(event: any) {
@@ -34,7 +34,7 @@ export class RegisterComponent implements OnInit {
   register(event: any) {
     this.user.type = this.typeUser;
 
-    if(this.user.password != this.passwordConf) {
+    if (this.user.password != this.confirmPassword) {
       alert('A senha está incorreta');
     } else {
       this.authService.cadastrar(this.user).subscribe((resp: User) => {
@@ -44,4 +44,5 @@ export class RegisterComponent implements OnInit {
       })
     }
   }
+
 }
