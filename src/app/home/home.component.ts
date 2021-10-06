@@ -1,3 +1,4 @@
+import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
@@ -42,12 +43,12 @@ export class HomeComponent implements OnInit {
   }
 
   findByIdTheme() {
-    this.themeService.getByIdTheme(this.themeId ).subscribe((resp: Theme) => {
+    this.themeService.getByIdTheme(this.themeId).subscribe((resp: Theme) => {
       this.theme = resp;
     })
   }
 
-  toPost() {
+  publicar() {
     this.theme.idTheme = this.themeId;
     this.post.relatedTheme = this.theme;
     this.user.idUser = this.userId;
@@ -55,8 +56,9 @@ export class HomeComponent implements OnInit {
     this.postService.postPost(this.post).subscribe((resp: Post) => {
       this.post = resp;
       alert('Postagem realizada com sucesso!');
+      this.post = new Post();
     })
-
   }
+ 
 
 }
