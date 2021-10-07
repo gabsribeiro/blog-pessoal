@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment.prod';
 import { Post } from '../model/Post';
 import { Theme } from '../model/Theme';
 import { User } from '../model/User';
+import { AuthService } from '../service/auth.service';
 import { PostService } from '../service/post.service';
 import { ThemeService } from '../service/theme.service';
 
@@ -16,6 +17,7 @@ import { ThemeService } from '../service/theme.service';
 export class HomeComponent implements OnInit {
 
   post: Post = new Post();
+  postList: Post[];
   theme: Theme = new Theme();
   themeList: Theme[];
   themeId: number;
@@ -25,7 +27,8 @@ export class HomeComponent implements OnInit {
   constructor(
     private router: Router,
     private postService: PostService,
-    private themeService: ThemeService
+    private themeService: ThemeService,
+    private authService: AuthService
   ) { }
 
   ngOnInit() {
@@ -34,12 +37,7 @@ export class HomeComponent implements OnInit {
     }
 
     this.getAllThemes();
-  }
-
-  getAllThemes() {
-    this.themeService.getAllThemes().subscribe((resp: Theme[]) => {
-      this.themeList = resp;
-    })
+    this.getAllPosts();
   }
 
   findByIdTheme() {
@@ -48,7 +46,25 @@ export class HomeComponent implements OnInit {
     })
   }
 
-  publicar() {
+  findByIdUser() {
+    this.authService.getByIdUser(this.userId).subscribe((resp: User) => {
+      this.user = resp;
+    })
+  }
+
+  getAllPosts() {
+    this.postService.getAllPosts().subscribe((resp: Post[]) => {
+      this.postList = resp;
+    })
+  }
+
+  getAllThemes() {
+    this.themeService.getAllThemes().subscribe((resp: Theme[]) => {
+      this.themeList = resp;
+    })
+  }
+
+  toPost() {
     this.theme.idTheme = this.themeId;
     this.post.relatedTheme = this.theme;
     this.user.idUser = this.userId;
@@ -57,8 +73,8 @@ export class HomeComponent implements OnInit {
       this.post = resp;
       alert('Postagem realizada com sucesso!');
       this.post = new Post();
+      this.getAllPosts();
     })
-  }
- 
+  } 
 
 }
