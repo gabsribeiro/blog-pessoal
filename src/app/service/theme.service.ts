@@ -16,23 +16,23 @@ export class ThemeService {
   }
 
   getAllThemes(): Observable<Theme[]> {
-    return this.http.get<Theme[]>('https://blog-gabrielaribeiro.herokuapp.com/api/theme/all', this.token);
+    return this.http.get<Theme[]>('https://blog-gabiribeiro.herokuapp.com/api/theme/all', this.token);
   }
 
   getByIdTheme(idTheme: number): Observable<Theme> {
-    return this.http.get<Theme>(`https://blog-gabrielaribeiro.herokuapp.com/api/theme/${idTheme}`, this.token);
+    return this.http.get<Theme>(`https://blog-gabiribeiro.herokuapp.com/api/theme/${idTheme}`, this.token);
   }
 
   postTheme(theme: Theme): Observable<Theme> {
-    return this.http.post<Theme>('https://blog-gabrielaribeiro.herokuapp.com/api/theme/save', theme, this.token);
+    return this.http.post<Theme>('https://blog-gabiribeiro.herokuapp.com/api/theme/save', theme, this.token);
   }
 
   putTheme(theme: Theme): Observable<Theme> {
-    return this.http.put<Theme>('https://blog-gabrielaribeiro.herokuapp.com/api/theme/update', theme, this.token);
+    return this.http.put<Theme>('https://blog-gabiribeiro.herokuapp.com/api/theme/update', theme, this.token);
   }
 
   deleteTheme(idTheme: number) {
-    return this.http.delete(`https://blog-gabrielaribeiro.herokuapp.com/api/theme/delete/${idTheme}`, this.token);
+    return this.http.delete(`https://blog-gabiribeiro.herokuapp.com/api/theme/delete/${idTheme}`, this.token);
   }
 
 }

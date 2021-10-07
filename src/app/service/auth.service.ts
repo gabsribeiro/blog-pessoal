@@ -15,15 +15,19 @@ export class AuthService {
   ) { }
   
   entrar(userDTO: UserDTO): Observable<UserDTO> {
-    return this.http.put<UserDTO>('https://blog-gabrielaribeiro.herokuapp.com/api/user/auth', userDTO);
+    return this.http.put<UserDTO>('https://blog-gabiribeiro.herokuapp.com/api/user/auth', userDTO);
+  }
+
+  atualizar(user: User): Observable<User> {
+    return this.http.put<User>('https://blog-gabiribeiro.herokuapp.com/api/user/update', user);
   }
 
   cadastrar(user: User): Observable<User> {
-    return this.http.post<User>('https://blog-gabrielaribeiro.herokuapp.com/api/user/register', user);
+    return this.http.post<User>('https://blog-gabiribeiro.herokuapp.com/api/user/register', user);
   }
 
   getByIdUser(idUser: number): Observable<User> {
-    return this.http.get<User>(`https://blog-gabrielaribeiro.herokuapp.com/api/user/${idUser}`)
+    return this.http.get<User>(`https://blog-gabiribeiro.herokuapp.com/api/user/${idUser}`)
   }
 
   logged() {
