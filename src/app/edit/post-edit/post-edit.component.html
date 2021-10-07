@@ -17,8 +17,7 @@
                     <textarea [(ngModel)]='post.text' class="form-control" name="" id="text" rows="3"></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="text">Escolha um tema ou <a data-dismiss="modal" [routerLink]="['/tema']">cadastre um
-                            novo</a>:</label>
+                    <label for="text">Escolha um tema:</label>
                     <select class="form-control" name="theme" id="theme" [(ngModel)]='themeId'
                         (change)='findByIdTheme()'>
                         <option *ngFor='let theme of themeList' value="{{theme.idTheme}}">{{theme.theme}}</option>
