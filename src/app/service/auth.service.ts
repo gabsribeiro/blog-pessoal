@@ -22,6 +22,10 @@ export class AuthService {
     return this.http.post<User>('https://blog-gabrielaribeiro.herokuapp.com/api/user/register', user);
   }
 
+  getByIdUser(idUser: number): Observable<User> {
+    return this.http.get<User>(`https://blog-gabrielaribeiro.herokuapp.com/api/user/${idUser}`)
+  }
+
   logged() {
     let ok: boolean = false;
     if (environment.token != '') {
