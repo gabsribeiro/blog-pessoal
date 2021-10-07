@@ -19,7 +19,20 @@ export class PostService {
     return this.http.get<Post[]>('https://blog-gabrielaribeiro.herokuapp.com/api/post/all', this.token);
   }
 
+  getByIdPost(idPost: number): Observable<Post> {
+    return this.http.get<Post>(`https://blog-gabrielaribeiro.herokuapp.com/api/post/${idPost}`, this.token);
+  }
+
   postPost(post: Post): Observable<Post> {
     return this.http.post<Post>('https://blog-gabrielaribeiro.herokuapp.com/api/post/save', post, this.token);
   }
+
+  putPost(post: Post): Observable<Post> {
+    return this.http.put<Post>('https://blog-gabrielaribeiro.herokuapp.com/api/post/update', post, this.token);
+  }
+
+  deletePost(idPost: number) {
+    return this.http.delete(`https://blog-gabrielaribeiro.herokuapp.com/api/post/delete/${idPost}`, this.token);
+  }
+  
 }

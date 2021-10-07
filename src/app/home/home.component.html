@@ -56,6 +56,8 @@
                         <h5 class="card-title m-0">{{post.title}}</h5>
                         <p class="card-text mt-2"><small class="text-muted">{{post.relatedTheme.theme}}</small></p>
                         <p class="card-text">{{post.text}}</p>
+                        <a [routerLink]="['/editar-postagem', post.idPost]" class="text-info mr-3" href="">Editar</a>
+                        <a [routerLink]="['/deletar-postagem', post.idPost]" class="text-danger" href="">Deletar</a>
                     </div>
                 </div>
             </div>
